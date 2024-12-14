@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "218935499604",
+    "project_id": "wemahostelsdb",
+    "storage_bucket": "wemahostelsdb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218935499604:android:826ecb55d07bb0511d86c1",
+        "android_client_info": {
+          "package_name": "com.example.wemahostels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNtSFKmbAgQWaecnTXo29t29M0I3n2x28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
