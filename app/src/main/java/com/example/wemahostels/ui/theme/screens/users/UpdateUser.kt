@@ -138,6 +138,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
+import com.example.wemahostels.navigation.ROUTE_USER_PROFILE
+import com.example.wemahostels.ui.components.SocialMediaIcons
 
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
@@ -220,16 +224,14 @@ fun UpdateClientScreen(navController: NavHostController, id: String) {
             TopAppBar(
                 title = { Text("Update Profile", color = Color.White) },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle Hamburger Menu Click */ }) {
+                    IconButton(onClick = { navController.navigate(ROUTE_USER_PROFILE) }) {
                         Icon(Icons.Filled.Menu, contentDescription = "Menu", tint = Color.White)
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Handle Search Click */ }) {
-                        Icon(Icons.Filled.Search, contentDescription = "Search", tint = Color.White)
-                    }
+
                     Spacer(modifier = Modifier.width(16.dp))
-                    IconButton(onClick = { /* Handle Back Button Click */ }) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
                     IconButton(onClick = { /* Handle Logout Click */ }) {
@@ -244,18 +246,13 @@ fun UpdateClientScreen(navController: NavHostController, id: String) {
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         }
     ) { innerPadding ->

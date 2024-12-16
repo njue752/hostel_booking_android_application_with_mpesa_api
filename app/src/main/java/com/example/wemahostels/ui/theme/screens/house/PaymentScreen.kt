@@ -22,7 +22,11 @@ import androidx.navigation.NavHostController
 import com.example.wemahostels.R
 import com.example.wemahostels.data.AuthViewModel
 import com.example.wemahostels.navigation.ROUTE_BOOKED
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
 import com.example.wemahostels.network.makePayment
+import com.example.wemahostels.ui.components.SocialMediaIcons
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaymentScreen(navController: NavHostController, houseId: String) { // Added houseId as a parameter
@@ -36,9 +40,7 @@ fun PaymentScreen(navController: NavHostController, houseId: String) { // Added 
                 title = {
                     // Search icon in the middle
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                        IconButton(onClick = { /* Handle Search Action */ }) {
-                            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-                        }
+
                     }
                 },
                 navigationIcon = {
@@ -67,18 +69,13 @@ fun PaymentScreen(navController: NavHostController, houseId: String) { // Added 
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         },
         content = { innerPadding ->

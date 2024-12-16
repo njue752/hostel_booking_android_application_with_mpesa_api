@@ -33,6 +33,10 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
+import com.example.wemahostels.navigation.ROUTE_USER_PROFILE
+import com.example.wemahostels.ui.components.SocialMediaIcons
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -65,16 +69,18 @@ fun HouseDetailsScreen(navController: NavController, houseId: String?) {
             TopAppBar(
                 title = {
                     // Search icon in the middle
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                        IconButton(onClick = { /* Handle Search Action */ }) {
-                            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-                        }
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center)
+                    {IconButton(onClick = { navController.navigate(
+                        ROUTE_USER_PROFILE
+                    ) }) {
+                        Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
+                    }
                     }
                 },
                 navigationIcon = {
-                    // Hamburger Menu
-                    IconButton(onClick = { /* Open Drawer */ }) {
-                        Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
+                    // Home Icon
+                    IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
+                        Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                     }
                 },
                 actions = {
@@ -101,7 +107,7 @@ fun HouseDetailsScreen(navController: NavController, houseId: String?) {
             ) {
                 // Add heading text at the top of the screen
                 Text(
-                    text = "Are you interested in the house?",
+                    text = "Are you interested in the house?Enter Your Details to Book",
                     style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -185,7 +191,7 @@ fun HouseDetailsScreen(navController: NavController, houseId: String?) {
 
 
                             }) {
-                                Text("Click Here To Pay")
+                                Text("Click Here To Book ")
                             }
                         }
                     }
@@ -200,18 +206,13 @@ fun HouseDetailsScreen(navController: NavController, houseId: String?) {
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         }
     )

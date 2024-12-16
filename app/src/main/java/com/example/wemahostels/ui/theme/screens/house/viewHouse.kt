@@ -51,6 +51,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.rememberMarkerState
 
 import androidx.compose.ui.platform.LocalContext
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
+import com.example.wemahostels.navigation.ROUTE_USER_PROFILE
+import com.example.wemahostels.ui.components.SocialMediaIcons
+
 //import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
@@ -76,14 +81,12 @@ fun ViewHouseScreen(navController: NavController, houseId: String?) {
                 title = {
                     // Search icon in the middle
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                        IconButton(onClick = { /* Handle Search Action */ }) {
-                            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-                        }
+
                     }
                 },
                 navigationIcon = {
                     // Hamburger Menu
-                    IconButton(onClick = { /* Open Drawer */ }) {
+                    IconButton(onClick = { navController.navigate(ROUTE_USER_PROFILE) }) {
                         Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
                     }
                 },
@@ -193,18 +196,13 @@ fun ViewHouseScreen(navController: NavController, houseId: String?) {
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         }
     )

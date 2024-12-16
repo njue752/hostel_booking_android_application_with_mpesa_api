@@ -45,6 +45,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.wemahostels.R
 import com.example.wemahostels.data.AuthViewModel
 import com.example.wemahostels.navigation.ROUTE_REGISTER
+
+
 @Composable
 fun LoginScreen(navController: NavController) {
     val context = LocalContext.current
@@ -130,7 +132,7 @@ fun LoginScreen(navController: NavController) {
                     .padding(horizontal = 16.dp)
             ) {
                 if (isLoading) {
-                    CircularProgressIndicator(color = Color.Black, strokeWidth = 4.dp)
+                    CircularProgressIndicator(color = Color.Green, strokeWidth = 4.dp)
                 } else {
                     Text(
                         text = "Login ",

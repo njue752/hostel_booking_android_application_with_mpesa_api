@@ -59,10 +59,14 @@ import com.example.wemahostels.data.AuthViewModel
 import com.example.wemahostels.navigation.ROUTE_ADD_HOUSE
 import com.example.wemahostels.navigation.ROUTE_EDIT_HOUSE
 import com.example.wemahostels.navigation.ROUTE_EDIT_USERS
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
 import com.example.wemahostels.navigation.ROUTE_LOGIN
 import com.example.wemahostels.navigation.ROUTE_PAY
+import com.example.wemahostels.navigation.ROUTE_USER_PROFILE
 import com.example.wemahostels.navigation.ROUTE_VIEW_HOUSE_ADMIN
 import com.example.wemahostels.navigation.ROUTE_VIEW_USERS
+import com.example.wemahostels.ui.components.SocialMediaIcons
 
 import com.google.firebase.annotations.concurrent.Background
 import com.google.firebase.auth.FirebaseAuth
@@ -81,7 +85,7 @@ fun AdminDashboard(navController: NavController) {
             TopAppBar(
                 title = { Text(text = "") },  // Empty title since we don't want it in the TopAppBar
                 navigationIcon = {
-                    IconButton(onClick = { /* Add hamburger menu logic if needed */ }) {
+                    IconButton(onClick = { navController.navigate(ROUTE_USER_PROFILE) }) {
                         Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
                     }
                 },
@@ -92,11 +96,9 @@ fun AdminDashboard(navController: NavController) {
                 ),
                 actions = {
                     // Middle Search icon
-                    IconButton(onClick = { /* Add search logic if needed */ }) {
-                        Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-                    }
+
                     // Right: Back and Logout icons
-                    IconButton(onClick = { /* Add back logic if needed */ }) {
+                    IconButton(onClick = { navController.popBackStack()  }) {
                         Icon(imageVector = Icons.Filled.Home, contentDescription = "Back")
                     }
                     IconButton(onClick = {
@@ -114,18 +116,13 @@ fun AdminDashboard(navController: NavController) {
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         }
     ) { paddingValues ->

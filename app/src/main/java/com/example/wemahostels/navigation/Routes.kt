@@ -24,3 +24,4 @@ const val ROUTE_SEARCH="search"
 //const val ROUTE_UPDATE_CLIENT="updateclient"
 //const val ROUTE_SPLASH="splashscreen"
 
+const val ROUTE_SPLASH="splashscreen"

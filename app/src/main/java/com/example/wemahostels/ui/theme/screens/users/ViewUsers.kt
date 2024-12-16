@@ -69,7 +69,11 @@ import androidx.navigation.NavHostController
 import com.example.wemahostels.R
 import com.example.wemahostels.data.AuthViewModel
 import com.example.wemahostels.models.SignupModel
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
 import com.example.wemahostels.navigation.ROUTE_UPDATE_CLIENT
+import com.example.wemahostels.navigation.ROUTE_USER_PROFILE
+import com.example.wemahostels.ui.components.SocialMediaIcons
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -89,14 +93,11 @@ fun ViewClients(navController: NavHostController) {
         topBar = {
             TopAppBar(
                 title = {
-                    // Centered Search icon
-                    IconButton(onClick = { /* Handle Search Action */ }) {
-                        Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-                    }
+
                 },
                 navigationIcon = {
                     // Hamburger Menu
-                    IconButton(onClick = { /* Handle Menu Open */ }) {
+                    IconButton(onClick = { navController.navigate(ROUTE_USER_PROFILE) }) {
                         Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menu")
                     }
                 },
@@ -117,18 +118,13 @@ fun ViewClients(navController: NavHostController) {
                 containerColor = Color.Green
             ) {
                 // Home Icon
-                IconButton(onClick = { /* Navigate to Home */ }) {
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                // Twitter Icon
-                IconButton(onClick = { /* Handle Twitter */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "Twitter", tint = Color.White)
-                }
-                // LinkedIn Icon
-                IconButton(onClick = { /* Handle LinkedIn */ }) {
-                    Icon(imageVector = Icons.Filled.Share, contentDescription = "LinkedIn", tint = Color.White)
-                }
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         }
         ,

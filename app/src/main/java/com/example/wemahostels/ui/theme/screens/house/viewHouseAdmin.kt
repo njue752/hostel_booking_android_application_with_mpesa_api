@@ -72,7 +72,10 @@ import com.example.wemahostels.data.HouseViewModel
 import com.example.wemahostels.models.House
 import com.example.wemahostels.models.SignupModel
 import com.example.wemahostels.navigation.ROUTE_EDIT_HOUSE
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
 import com.example.wemahostels.navigation.ROUTE_UPDATE_CLIENT
+import com.example.wemahostels.ui.components.SocialMediaIcons
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,10 +104,17 @@ fun ViewHouse(navController: NavHostController) {
             )
         },
         bottomBar = {
-            BottomAppBar(containerColor = Color.Green) {
-                IconButton(onClick = { /* Navigate to Home */ }) {
+            BottomAppBar(
+                containerColor = Color.Green
+            ) {
+                // Home Icon
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
+                Spacer(modifier = Modifier.weight(1f))
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         },
         content = { innerPadding ->

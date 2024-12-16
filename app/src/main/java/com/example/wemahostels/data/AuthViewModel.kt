@@ -256,7 +256,10 @@ class AuthViewModel: ViewModel() {
                 showToast(task.exception?.message ?: "Login Failed", context)
             }
         }
-    }fun getUserDetails(userId: String, context: Context) {
+    }
+
+
+    fun getUserDetails(userId: String, context: Context) {
     // Reference to the user's data in the Firebase Realtime Database
     val userRef = FirebaseDatabase.getInstance().getReference("Users/$userId")
 

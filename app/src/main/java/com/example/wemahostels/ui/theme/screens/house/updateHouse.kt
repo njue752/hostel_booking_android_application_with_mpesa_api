@@ -33,6 +33,9 @@ import coil.compose.rememberImagePainter
 import com.example.wemahostels.R
 import com.example.wemahostels.data.HouseViewModel
 import com.example.wemahostels.models.House
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
+import com.example.wemahostels.ui.components.SocialMediaIcons
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -94,10 +97,17 @@ fun UpdateHouseScreen(navController: NavHostController, id: String) {
             )
         },
         bottomBar = {
-            BottomAppBar(containerColor = Color.Green) {
-                IconButton(onClick = { navController.popBackStack() }) {
+            BottomAppBar(
+                containerColor = Color.Green
+            ) {
+                // Home Icon
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
                     Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
+                Spacer(modifier = Modifier.weight(1f))
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
             }
         },
         content = { innerPadding ->

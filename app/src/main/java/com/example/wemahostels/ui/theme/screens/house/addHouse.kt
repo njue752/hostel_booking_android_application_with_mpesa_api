@@ -32,6 +32,9 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
 import com.example.wemahostels.R
 import com.example.wemahostels.data.HouseViewModel
+import com.example.wemahostels.navigation.ROUTE_HOME_ONE
+import com.example.wemahostels.navigation.ROUTE_HOME_TWO
+import com.example.wemahostels.ui.components.SocialMediaIcons
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
@@ -63,23 +66,17 @@ fun AddHouseScreen(navController: NavController) {
     Scaffold(
         bottomBar = {
             BottomAppBar(
-                actions = {
-                    IconButton(onClick = { /* Navigate to Home */ }) {
-                        Icon(Icons.Filled.Home, contentDescription = "Home")
-                    }
-                    IconButton(onClick = { /* Navigate to Settings */ }) {
-                        Icon(Icons.Filled.Settings, contentDescription = "Settings")
-                    }
-                    IconButton(onClick = { /* Call support */ }) {
-                        Icon(Icons.Filled.Phone, contentDescription = "Call")
-                    }
-                },
-                floatingActionButton = {
-                    FloatingActionButton(onClick = { /* Navigate to Profile */ }) {
-                        Icon(Icons.Filled.AccountCircle, contentDescription = "Profile")
-                    }
+                containerColor = Color.Green
+            ) {
+                // Home Icon
+                IconButton(onClick = { navController.navigate(ROUTE_HOME_TWO) }) {
+                    Icon(imageVector = Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
-            )
+                Spacer(modifier = Modifier.weight(1f))
+
+                // Add the SocialMediaIcons
+                SocialMediaIcons()
+            }
         }
     ) { innerPadding ->
         LazyColumn(

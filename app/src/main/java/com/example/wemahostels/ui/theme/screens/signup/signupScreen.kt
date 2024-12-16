@@ -213,7 +213,7 @@ fun SignupScreen(navController: NavController) {
                     .padding(horizontal = 16.dp)
             ) {
                 if (isLoading) {
-                    CircularProgressIndicator(color = Color.Black, strokeWidth = 4.dp)
+                    CircularProgressIndicator(color = Color.Green, strokeWidth = 4.dp)
                 } else {
                     Text(
                         modifier = Modifier.padding(10.dp),
