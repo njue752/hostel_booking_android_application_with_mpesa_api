@@ -1,0 +1,1 @@
+This is a  fully functional website that i built using django.It has signup,login ,index and other pages that make it dynamic .It allows users to place orders for meals and then the meals can be delivered to them at their doorstep once they pay using mpesa that i integrated on the website.In short it is a meal delivery website.
